@@ -10,7 +10,7 @@ You can save filepaths or directories using fsav, after saving you can easiely r
 
 **--save <filepath/dir> <tag>** saves the given filepath or directory in the database file, a custom tag can be given but isnt necessary.
 
-**--find <tag>** searches the database for the given tag, once found it will return the filepath/dir.
+**--find <tag/extension>** searches the database for the given tag, once found it will return the filepath/dir or it you can say !extension to return multiple entries with the same extension.
 
 **--remove <tag>** removes the given tag and its corosponding filepath/dir from the database.
 
@@ -24,8 +24,11 @@ Tags in Fsav can only exist one at a time.
 Fsav automatically does some things for you, these are:
 - **Automatic removal of extinct filepaths/dir** (throws Warning aswell to inform user).
 - **Readable Database Format** (makes it easy to debug potential issues or to manually add filepaths/dirs).
-- **Accepts wildcards as input** (if you have a file named 'cat.png', you can easiely just use 'fsav --save *.png', make sure you dont parse multiple files as an input)
+- **Accepts wildcards as input** (if you have a file named `cat.png`, you can easiely just use `fsav --save *.png`, make sure you dont parse multiple files as an input)
 - **Existing Tag Checking** (when saving under a tag, fsav checks if the tag already exists)
+
+# Example Usage (Win-Powershell) 
+Here is an Example of how Fsav can be useful in finding and using files `imgprocess $(fsav --find catPNG) --large`, this will execute the command within the brackets first causing it to look like this: `imgprocess "C:\Users\admin\cats\cat1.png" --large` and it can also be used for getting multiple files like: `filemover "$(fsav --find projectDIR)/*.java"`, which returns the wildcard matches in the given directory.
 
 # Download
 Fsav is lightweight and written in Java (write once, run anywhere).
