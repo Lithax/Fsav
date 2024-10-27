@@ -32,4 +32,4 @@ Here is an Example of how Fsav can be useful in finding and using files `imgproc
 
 # Download
 Fsav is lightweight and written in Java (write once, run anywhere).
-In order to install fsav onto your device, you have these options:
+In order to install fsav onto your device, currently, you must configure it yourself to your liking, this may change in the future.
