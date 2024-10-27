@@ -28,7 +28,7 @@ Fsav automatically does some things for you, these are:
 - **Existing Tag Checking** (when saving under a tag, fsav checks if the tag already exists)
 
 # Example Usage (Win-Powershell) 
-Here is an Example of how Fsav can be useful in finding and using files `imgprocess $(fsav --find catPNG) --large`, this will execute the command within the brackets first causing it to look like this: `imgprocess "C:\Users\admin\cats\cat1.png" --large` and it can also be used for getting multiple files like: `filemover "$(fsav --find projectDIR)/*.java"`, which returns the wildcard matches in the given directory.
+Here is an Example of how Fsav can be useful in finding and using files `imgprocess $(fsav --find catPNG) --large`, this will execute the command within the brackets first causing it to look like this: `imgprocess C:\Users\admin\cats\cat1.png --large` and it can also be used for getting multiple files like: `filemover "$(fsav --find projectDIR)/*.java"`, which returns the wildcard matches in the given directory.
 
 # Download
 Fsav is lightweight and written in Java (write once, run anywhere).
