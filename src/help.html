@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSav Command-Line Tool Documentation</title>
+    <style>
+        body {
+            background-color: #2b2b2b;
+            color: #f1f1f1;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1c1c1c;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            color: #00ff80;
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 20px;
+            background-color: #333;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #00ff80;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #3a3a3a;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h2, h3 {
+            color: #00ff80;
+        }
+
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 5px;
+            color: #f1f1f1;
+            overflow-x: auto;
+        }
+
+        .author-info {
+            margin: 20px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .author-info a {
+            color: #00ff80;
+            text-decoration: none;
+        }
+
+        .author-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>FSav Command-Line Tool</h1>
+    <p>A simple utility for managing files with tags efficiently.</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#save">--save</a></li>
+        <li><a href="#find">--find</a></li>
+        <li><a href="#entries">--entries</a></li>
+        <li><a href="#remove">--remove</a></li>
+        <li><a href="#version">--version</a></li>
+        <li><a href="#help">--help</a></li>
+        <li><a href="#dump">--dump</a></li>
+    </ul>
+</nav>
+
+<section id="save">
+    <h3>--save</h3>
+    <p>The <code>--save</code> command stores a file or directory in the FSav database. You can either specify a tag or let the tool automatically generate one based on the file or folder name.</p>
+    <p><strong>Usage:</strong></p>
+    <pre>fsav --save &lt;path&gt; [&lt;tag&gt;]</pre>
+    <p>If a tag is specified, the tool will store the file under that tag. If no tag is provided, the filename (or folder name) will be used as the tag.</p>
+    <p><strong>Example with a tag:</strong></p>
+    <pre>fsav --save /home/user/myfile.txt mytag</pre>
+    <p><strong>Example without a tag (auto-tagging):</strong></p>
+    <pre>fsav --save /home/user/myfile.txt</pre>
+</section>
+
+<section id="find">
+    <h3>--find</h3>
+    <p>The <code>--find</code> command retrieves the file or directory paths associated with a specified tag. If multiple files or directories match the tag, all are returned.</p>
+    <p>You can also search for files by extension by using an exclamation mark <code>!</code> before the extension.</p>
+    <p><strong>Usage:</strong></p>
+    <pre>fsav --find &lt;tag&gt;</pre>
+    <p>To retrieve multiple results, specify a common tag or use wildcards or extensions.</p>
+    <p><strong>Example:</strong></p>
+    <pre>fsav --find mytag</pre>
+    <p><strong>Example by extension:</strong></p>
+    <pre>fsav --find !txt</pre>
+</section>
+
+<section id="entries">
+    <h3>--entries</h3>
+    <p>The <code>--entries</code> command lists all files and directories stored in the FSav database. You can filter the entries by extension or sort alphabetically by tag. It also includes a list limit.</p>
+    <p><strong>Usage:</strong></p>
+    <pre>fsav --entries filter limit</pre>
+    <p><strong>Example with filter by Extension:</strong></p>
+    <pre>fsav --entries txt</pre>
+    <p><strong>Example with filter by Alphabet:</strong></p>
+    <pre>fsav --entries !abc</pre>
+    <p><strong>Example using the !default list and a limit:</strong></p>
+    <pre>fsav --entries default 4</pre>
+    <p><strong>Example using no arguments (minimal):</strong></p>
+    <pre>fsav --entries</pre>
+</section>
+
+<section id="remove">
+    <h3>--remove</h3>
+    <p>The <code>--remove</code> command deletes a file or directory reference from the FSav database. This will not delete the actual file or directory, only its record in the FSav database.</p>
+    <p><strong>Usage:</strong></p>
+    <pre>fsav --remove &lt;tag&gt;</pre>
+</section>
+
+<section id="version">
+    <h3>--version</h3>
+    <p>The <code>--version</code> command displays the current version of the FSav tool, along with author information.</p>
+    <p><strong>Usage:</strong></p>
+    <pre>fsav --version</pre>
+</section>
+
+<section id="help">
+    <h3>--help</h3>
+    <p>The <code>--help</code> command opens this help documentation in your default web browser.</p>
+    <p><strong>Usage:</strong></p>
+    <pre>fsav --help</pre>
+</section>
+
+<section id="dump">
+    <h3>--dump</h3>
+    <p>The <code>--dump</code> command outputs the raw contents of the FSav database file. This is useful for debugging or manually reviewing the data.</p>
+    <p><strong>Usage:</strong></p>
+    <pre>fsav --dump</pre>
+</section>
+
+<section>
+    <h3>Errors</h3>
+    <p><code>"Database could not be initialized":</code> If the database is empty, it will always throw this Error, in order to fix this, save a file or directory with <code>--save</code>, this will fill the database with the nessecary information to initialize, causing the error to not show up again.</p>
+</section>
+
+<section>
+    <h3>Processes</h3>
+    <p><b>Auto-Tag-Removal:</b> With every call of the tool, it will check the database for tags that point to non-existing files or directories, if this is the case and it will automatically remove the tag from the database and throw a Warning.</p>
+</section>
+
+<div class="author-info">
+    <h2>About the Author</h2>
+    <p>Created by <strong>@Lithax</strong>. Feel free to explore more projects or reach out via the following links:</p>
+    <ul>
+        <li><a href="https://github.com/Lithax">GitHub Profile</a></li>
+        <li><a href="mailto:Lithax@outlook.com">E-Mail</a></li>
+        <li><a href="">Youtube</a></li>
+    </ul>
+</div>
+
+</body>
+</html>
