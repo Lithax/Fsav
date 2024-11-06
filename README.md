@@ -10,7 +10,7 @@ You can save filepaths or directories using fsav, after saving you can easiely r
 
 **--save <filepath/dir> <tag>** saves the given filepath or directory in the database file, a custom tag can be given but isnt necessary.
 
-**--find <tag/extension>** searches the database for the given tag, once found it will return the filepath/dir or it you can say !extension to return multiple entries with the same extension.
+**--find <tag/extension>** searches the database for the given tag, once found it will return the filepath/dir or it you can say !<extension> to return multiple entries with the same extension.
 
 **--remove <tag>** removes the given tag and its corosponding filepath/dir from the database.
 
